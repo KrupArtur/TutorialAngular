@@ -1,0 +1,12 @@
+<div class="header">
+  <div>
+    <a class="button" routerLink="/home">Home</a>
+    <div class="dropdown">
+      <span>Testy</span>
+      <div class="dropdown-content">
+        <a (click)="setCategories()" class="button" routerLink="/test/{{categorie}}" *ngFor="let categorie of categories">{{categorie}}</a>
+      </div>
+    </div>
+    <a class="button" routerLink="/lerning">Nauka</a>
+  </div>
+</div>

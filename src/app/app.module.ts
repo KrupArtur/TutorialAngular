@@ -12,7 +12,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { HttpClientModule } from '@angular/common/http';
 
 
-export const appRoutes: Routes = [
+
+export const appRoutes: Routes = [   
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path: 'test/', component: TestComponent},
@@ -21,14 +22,14 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [
+  imports: [   
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
-    ),
+    ),  
     BrowserModule,
     HttpClientModule
-  ],
+  ],  
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -42,7 +43,7 @@ export const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
+export class AppModule { 
 }
 
 

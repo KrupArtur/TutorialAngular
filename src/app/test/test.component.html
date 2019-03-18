@@ -1,8 +1,9 @@
-<p *ngFor="let _questionInTest of _questionsInTest">{{_questionInTest.name}}</p>
-
-        <div *ngFor="let car of _Question2">         
-          <p>{{car.questionPL}}</p>
-          <p>{{car.answerPL.answer1}}</p>
-          <p>{{car.correctAnswer}}</p>
-         
-        </div>
+<body>    
+        {{getQuestions(i).questionPL}}  <br>
+        <button (click)="answer()">Tak</button>
+        <button (click)="answer()">Nie</button>
+        <br>
+        <button (click)="prevQuestion()">Prev</button>
+        <button (click)="nextQuestion()">Next</button>
+       
+</body>

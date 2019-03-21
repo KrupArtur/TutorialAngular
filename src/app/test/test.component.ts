@@ -1,17 +1,19 @@
-import { Component, OnInit, Input, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Question } from "./model/question";
 
 @Component({
-  selector: 'app-test',
+  selector: 'app-test',  
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
 @Injectable()
 export class TestComponent implements OnInit {
-
+  isOpen = true;
+  toggle = false;
+  buttonColor: string = '#000';
   questions: Array<Question>;
   _questionsInTest;
   private categorie = 'A';
@@ -37,7 +39,7 @@ export class TestComponent implements OnInit {
   }
 
   getAll(): Observable<any> {
-    return this.http.get('//localhost:9002/object/' + this.categorie);
+    return this.http.get('//localhost:9001/object/' + this.categorie);
   }
 
   getQuestion(categorie: String) {
@@ -59,11 +61,22 @@ export class TestComponent implements OnInit {
       this.i-=1;
   }
 
+  checkIfAnswerIstEmpty(question: Question){
+      if(question.answerPL.answer1 == '')
+        return false;
+      else
+        return true;
+  }
+  answer(answer: String){
+    answer === this.questions[this.i].correctAnswer ? console.log('Y') : console.log('N') ;
+    console.log(this.questions[this.i].correctAnswer);
+    
+  }
+
 }
 export class Question2 {
   constructor(public name: String, public categorie: String) {
     this.name = name;
     this.categorie = categorie;
   }
-
 }

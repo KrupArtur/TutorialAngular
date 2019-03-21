@@ -1,9 +1,18 @@
 <body>    
-        {{getQuestions(i).questionPL}}  <br>
-        <button (click)="answer()">Tak</button>
-        <button (click)="answer()">Nie</button>
+        {{getQuestions(i).questionPL}}<br>
+        <ng-container *ngIf="checkIfAnswerIstEmpty(getQuestions(i)); then thenTemplate; else elseTemplate"></ng-container>
+        <ng-template #thenTemplate>
+                <button (click)="answer(1)">{{getQuestions(i).answerPL.answer1}}</button>
+                <button (click)="answer(2)">{{getQuestions(i).answerPL.answer2}}</button>
+                <button (click)="answer(3)">{{getQuestions(i).answerPL.answer3}}</button>
+        </ng-template>
+        <ng-template #elseTemplate>
+                <button mat-raised-button class ="btn1" (click)="answer('T')">Tak</button>
+                <button mat-button (click)="answer('N')">Nie</button>
+                <button mat-button>Click me!</button>
+                
+        </ng-template>  
         <br>
         <button (click)="prevQuestion()">Prev</button>
-        <button (click)="nextQuestion()">Next</button>
-       
+        <button (click)="nextQuestion()">Next</button>       
 </body>

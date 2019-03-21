@@ -11,8 +11,6 @@ import { LerningTestWorkComponent } from './lerning-test-work/lerning-test-work.
 import { CategoriesComponent } from './categories/categories.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
-
 export const appRoutes: Routes = [   
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},

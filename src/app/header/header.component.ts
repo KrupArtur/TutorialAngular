@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,18 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  
-  public categories = new Array('A','B','C');
-  public _categories;
-  @Input() categorie;
+
+  public categories = new Array('A', 'B', 'C');
+
   constructor() { }
 
-  ngOnInit() {
-
-  }
-  refresh(){ 
-      location.reload(); 
-  }
+  ngOnInit() { }
 
 }
 

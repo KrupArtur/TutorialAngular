@@ -1,14 +1,20 @@
 body{
-    padding-left: 5%;
-    padding-right: 5%;
-    text-align: center;
+    padding: auto;  
 }
 
 .button {
+  background-color: #f5f5f5; 
+  color: black;
+  border: 2px solid #868484;
   padding: 10px 20px;
   font-size: 12px;
-  margin-top: 2%;
-  cursor: pointer;
+  cursor: pointer; 
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .columnMain {
@@ -29,3 +35,7 @@ body{
   display:inline;
   padding-left: 5px;
 }
+.checkbox{
+  cursor: pointer;
+}
+ 

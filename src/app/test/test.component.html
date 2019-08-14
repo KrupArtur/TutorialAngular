@@ -1,18 +1,36 @@
-<body>    
-        {{getQuestions(i).questionPL}}<br>
-        <ng-container *ngIf="checkIfAnswerIstEmpty(getQuestions(i)); then thenTemplate; else elseTemplate"></ng-container>
-        <ng-template #thenTemplate>
-                <button (click)="answer(1)">{{getQuestions(i).answerPL.answer1}}</button>
-                <button (click)="answer(2)">{{getQuestions(i).answerPL.answer2}}</button>
-                <button (click)="answer(3)">{{getQuestions(i).answerPL.answer3}}</button>
-        </ng-template>
-        <ng-template #elseTemplate>
-                <button mat-raised-button class ="btn1" (click)="answer('T')">Tak</button>
-                <button mat-button (click)="answer('N')">Nie</button>
-                <button mat-button>Click me!</button>
-                
-        </ng-template>  
-        <br>
-        <button (click)="prevQuestion()">Prev</button>
-        <button (click)="nextQuestion()">Next</button>       
+<body>
+  <div>
+    <img src="../../assets/img/X.jpg" width="600" height="250"><br> {{getNumberQuestion()}}.
+    {{getQuestions()?.question.questionPL}}<br><br><br>
+  </div>
+  <ng-container *ngIf="checkIfAnswerIstEmpty(); then thenTemplate; else elseTemplate"></ng-container>
+  <ng-template #thenTemplate>
+    <a (click)="answer('A')" appAnswer class="btn btn-ligh"
+      [style.background-color]="buttonAnswerA">{{getAnswerPL().answer1}}</a>
+    <a (click)="answer('B')" class="btn btn-ligh" [style.background-color]="buttonAnswerB">{{getAnswerPL().answer2}}</a>
+
+      <a (click)="answer('C')" class="btn btn-ligh" [style.background-color]="buttonAnswerC">{{getAnswerPL().answer3}}</a>
+
+  </ng-template>
+  <ng-template #elseTemplate>
+    <div class="buttonAlignCenter">
+      <a (click)="answer('T')" class="btn btn-ligh" [style.background-color]="buttonYes">Tak</a>
+    </div>
+    <div class="buttonAlignCenter-Pading">
+      <a (click)="answer('N')" appAnswer class="btn btn-ligh" [style.background-color]="buttonNo">Nie</a>
+    </div>
+    <ng-container *ngIf="resultTest != null && yourAnswer != null"> Twoja odpowiedź : {{yourAnswer}}</ng-container>
+  </ng-template>
+  <br><br><br>
+
+  <div class="buttonAlignCenter">
+    <a (click)="prevQuestion()" class="btn btn-ligh">Poprzednie pytanie</a>
+  </div>
+  <div class="buttonAlignCenter-Pading">
+    <a (click)="nextQuestion()" class="btn btn-ligh">Następne pytanie</a>
+  </div>
+  <div class="buttonAlignCenter-Pading">
+    <a (click)="endTest()" class="btn btn-ligh">Zakoncz egzamin</a>
+  </div>
+  <p *ngIf="resultTest != null"> {{isComplited()}}</p>
 </body>

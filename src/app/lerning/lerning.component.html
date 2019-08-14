@@ -1,1 +1,36 @@
-<app-lerning-test-work></app-lerning-test-work>
+<body>
+        <div class="row">
+                <div class="columnMain">
+                        {{getNumberQuestion()}}. {{getQuestions()?.question?.questionPL}}<br><br>
+                        <ng-container *ngIf="answer1isNoTEmpty(); then thenTemplate; else elseTemplate"></ng-container>
+                        <ng-template #thenTemplate>
+                                <div class="buttonAlignCenter">
+                                        <a (click)="answer()" class="btn btn-ligh" [style.background-color]="buttonAnswer1">{{getAnswerPL().answer1}}</a>
+                                </div>
+                                <div class="buttonAlignCenter-Pading">
+                                        <a (click)="answer()" class="btn btn-ligh" [style.background-color]="buttonAnswer2">{{getAnswerPL().answer2}}</a>
+                                </div>
+                                <div class="buttonAlignCenter-Pading">
+                                        <ng-container *ngIf="answer3isNoTEmpty()">
+                                                <a (click)="answer()" class="btn btn-ligh" [style.background-color]="buttonAnswer3">{{getAnswerPL().answer3}}</a>
+                                        </ng-container>
+                                </div>
+                        </ng-template>
+                        <ng-template #elseTemplate>
+                                <div class="buttonAlignCenter">
+                                        <a (click)="answer()" appAnswer="getQuestions()?.correctAnswer" class="btn btn-ligh" [style.background-color]="buttonYes">Tak</a>
+                                </div>
+                                <div class="buttonAlignCenter-Pading">
+                                        <a (click)="answer()" class="btn btn-ligh" [ngStyle]="{'background-color': buttonNo}">Nie</a>
+                                </div>
+                        </ng-template>
+                        <br><br><br>
+                        <div class="buttonAlignCenter">
+                                <a (click)="prevQuestion()" class="btn btn-ligh">Poprzednie pytanie</a>
+                        </div>
+                        <div class="buttonAlignCenter-Pading">
+                                <a (click)="nextQuestion()" class="btn btn-ligh">Następne pytanie</a>
+                        </div>
+                </div>
+        </div>
+</body>

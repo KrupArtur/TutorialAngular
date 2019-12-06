@@ -13,7 +13,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   getAllQuestions(): Observable<Array<Questions>> {
-    return this.http.get<Array<Questions>>(this.url + 'allQuestions')
+    return this.http.get<Array<Questions>>(this.url + 'allQuestions');
   }
 
   getQuestionsForCategory(category: string): Observable<Set<Questions>> {

@@ -128,11 +128,12 @@ export class TestComponent implements OnInit {
       this.numberQuestion -= 1;
       if (!this.endtest) {
         this.allButtonSetColor();
-        if (this.map.get(this.numberQuestion) !== null)
-          this.answer(this.map.get(this.numberQuestion))
+        if (this.map.get(this.numberQuestion) !== null) {
+          this.answer(this.map.get(this.numberQuestion));
+        }
       } else {
         this.answerGood();
-        // this.yourAnswer = this.map.get(this.numberQuestion);
+        this.yourAnswer = this.map.get(this.numberQuestion);
       }
     }
   }
